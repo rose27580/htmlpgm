@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>Registration Form</title>
+    <script type="text/javascript">
+        function check() {
+            if (document.getElementById('name').value == '') {
+                alert('Please enter your name');
+                return false;
+            }
+
+            // Check if the username is entered
+            if (document.getElementById('user').value == '') {
+                alert('Please enter a username');
+                return false;
+            }
+
+            // Check if the email is valid
+            var email = document.getElementById('mail');
+            var filter = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+            if (!filter.test(email.value)) {
+                alert('Please enter a valid email address');
+                return false;
+            }
+
+            // Check if password and confirm password are entered
+            if (document.getElementById('pswd').value == '' || document.getElementById('cpswd').value == '') {
+                alert('Please enter your password');
+                return false;
+            }
+
+            // Check if password and confirm password match
+            if (document.getElementById('pswd').value != document.getElementById('cpswd').value) {
+                alert('Password does not match');
+                return false;
+            }
+
+            // If all validations pass, submit the form
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <form onsubmit="return check()">
+            <h1>REGISTRATION</h1>
+            <label for="name">Name: </label>
+            <input type="text" id="name"><br><br>
+
+            <label for="user">Username: </label>
+            <input type="text" id="user"><br><br>
+
+            <label for="mail">Email: </label>
+            <input type="text" id="mail"><br><br>
+
+            <label for="pswd">Password: </label>
+            <input type="password" id="pswd"><br><br>
+
+            <label for="cpswd">Confirm Password: </label>
+            <input type="password" id="cpswd"><br><br>
+
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </center>
+</body>
+</html>
